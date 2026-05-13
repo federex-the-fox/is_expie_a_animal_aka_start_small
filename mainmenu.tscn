@@ -1,0 +1,272 @@
+[gd_scene format=3 uid="uid://djhkjtnt27adj"]
+
+[ext_resource type="Texture2D" uid="uid://mdntejhfs3nl" path="res://imgs/1. expie .png" id="1_0y70q"]
+[ext_resource type="FontFile" uid="uid://ggj20cel15ga" path="res://SupermercadoOne-Regular.ttf" id="2_qrn07"]
+[ext_resource type="Texture2D" uid="uid://csa0vpbftfoqk" path="res://imgs/ez.svg" id="3_lidg2"]
+[ext_resource type="Script" uid="uid://diqnqbttgau0u" path="res://play.gd" id="3_mn2x1"]
+[ext_resource type="Texture2D" uid="uid://b6vkbah16wv41" path="res://imgs/ok.svg" id="4_raimv"]
+[ext_resource type="Script" uid="uid://dsx276psdx5pj" path="res://placeholder_diff.gd" id="5_hr4ih"]
+[ext_resource type="Texture2D" uid="uid://23e4s4d8t20d" path="res://easy.svg" id="5_qy7ti"]
+[ext_resource type="Texture2D" uid="uid://csixkjupabsjs" path="res://imgs/oh.svg" id="6_y5i8j"]
+[ext_resource type="Texture2D" uid="uid://bnijl57ckmude" path="res://imgs/OH MY GOD.svg" id="7_f0ka0"]
+[ext_resource type="Texture2D" uid="uid://gi3odg25wuoq" path="res://imgs/FTSERGVFDSYGESRTE.svg" id="8_lqdfc"]
+[ext_resource type="Texture2D" uid="uid://d21vvmr4h80vg" path="res://imgs/wow photos in game.svg" id="9_cpamr"]
+[ext_resource type="Texture2D" uid="uid://cvnp2go36tim1" path="res://imgs/What.svg" id="10_mn2x1"]
+[ext_resource type="Script" uid="uid://eqqj6uoscq0h" path="res://scripts/lvl.gd" id="13_xcgji"]
+[ext_resource type="AudioStream" uid="uid://dxyhpkvmqf235" path="res://audio/Monkeys Are Coming - Coyote Hearing.mp3" id="15_y5i8j"]
+[ext_resource type="Script" uid="uid://ddskyj5fm4nao" path="res://settings.gd" id="18_cpamr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hr4ih"]
+font = ExtResource("2_qrn07")
+font_size = 54
+outline_size = 18
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcgji"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f1hcs"]
+
+[sub_resource type="Theme" id="Theme_pg2s2"]
+default_font_size = 40
+Button/fonts/font = ExtResource("2_qrn07")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("2_qrn07")
+Label/styles/focus = SubResource("StyleBoxFlat_xcgji")
+Label/styles/normal = SubResource("StyleBoxEmpty_f1hcs")
+
+[sub_resource type="LabelSettings" id="LabelSettings_xmgyx"]
+font = ExtResource("2_qrn07")
+font_size = 50
+
+[node name="Node2D" type="Node2D" unique_id=1546746616]
+
+[node name="main" type="Node2D" parent="." unique_id=2138979799]
+
+[node name="1_Expie" type="Sprite2D" parent="main" unique_id=1837128583]
+position = Vector2(43, 85)
+scale = Vector2(0.54519236, 0.5696684)
+texture = ExtResource("1_0y70q")
+
+[node name="Label" type="Label" parent="main" unique_id=1561466891]
+offset_left = 104.0
+offset_right = 476.0
+offset_bottom = 74.0
+text = "START \"SMALL\""
+label_settings = SubResource("LabelSettings_hr4ih")
+
+[node name="Button" type="Button" parent="main" unique_id=1587306954]
+offset_left = 104.0
+offset_top = 85.0
+offset_right = 326.0
+offset_bottom = 160.0
+tooltip_text = "Play"
+theme = SubResource("Theme_pg2s2")
+text = "Play"
+script = ExtResource("3_mn2x1")
+
+[node name="Button2" type="Button" parent="main" unique_id=653615881]
+offset_left = 104.0
+offset_top = 388.0
+offset_right = 326.0
+offset_bottom = 463.0
+tooltip_text = "Play"
+theme = SubResource("Theme_pg2s2")
+text = "Quit"
+
+[node name="diff" type="Node2D" parent="." unique_id=242229439]
+visible = false
+
+[node name="Ez" type="Sprite2D" parent="diff" unique_id=1110874871]
+position = Vector2(349.5, 369)
+texture = ExtResource("3_lidg2")
+
+[node name="Button" type="Button" parent="diff/Ez" unique_id=1013752029]
+offset_left = -36.5
+offset_top = -12.0
+offset_right = 28.5
+offset_bottom = 19.0
+text = "Choose"
+script = ExtResource("5_hr4ih")
+
+[node name="Ok" type="Sprite2D" parent="diff" unique_id=2070442268]
+position = Vector2(609.5, 376)
+texture = ExtResource("4_raimv")
+
+[node name="Label" type="Label" parent="diff/Ok" unique_id=935301137]
+modulate = Color(0, 1, 0, 1)
+offset_left = -34.5
+offset_top = -98.5
+offset_right = 51.0
+offset_bottom = -68.0
+text = "Normal"
+
+[node name="Button2" type="Button" parent="diff/Ok" unique_id=461163695]
+offset_left = -34.5
+offset_top = -19.0
+offset_right = 30.5
+offset_bottom = 12.0
+text = "Choose"
+script = ExtResource("5_hr4ih")
+
+[node name="Easy" type="Sprite2D" parent="diff" unique_id=1317407258]
+position = Vector2(480.5, 376)
+texture = ExtResource("5_qy7ti")
+
+[node name="Button3" type="Button" parent="diff/Easy" unique_id=1612042899]
+offset_left = -40.5
+offset_top = -6.0
+offset_right = 24.5
+offset_bottom = 25.0
+text = "Choose"
+script = ExtResource("5_hr4ih")
+
+[node name="Oh" type="Sprite2D" parent="diff" unique_id=495199090]
+position = Vector2(732.5, 376)
+texture = ExtResource("6_y5i8j")
+
+[node name="Button4" type="Button" parent="diff/Oh" unique_id=1668042574]
+offset_left = -37.5
+offset_top = -6.0
+offset_right = 27.5
+offset_bottom = 25.0
+text = "Choose"
+script = ExtResource("5_hr4ih")
+
+[node name="OhMyGod" type="Sprite2D" parent="diff" unique_id=646114080]
+position = Vector2(888.5, 376)
+texture = ExtResource("7_f0ka0")
+
+[node name="Label2" type="Label" parent="diff/OhMyGod" unique_id=775126151]
+modulate = Color(1, 0.08235294, 0, 1)
+offset_left = -43.5
+offset_top = -96.5
+offset_right = 42.0
+offset_bottom = -66.0
+text = "HARDEST"
+
+[node name="Button5" type="Button" parent="diff/OhMyGod" unique_id=2042198335]
+offset_left = -43.5
+offset_top = -19.0
+offset_right = 21.5
+offset_bottom = 12.0
+text = "Choose"
+script = ExtResource("5_hr4ih")
+
+[node name="Ftsergvfdsygesrte" type="Sprite2D" parent="diff" unique_id=836414959]
+position = Vector2(1037.5, 376)
+texture = ExtResource("8_lqdfc")
+
+[node name="Button6" type="Button" parent="diff/Ftsergvfdsygesrte" unique_id=74371954]
+offset_left = -42.5
+offset_top = -6.0
+offset_right = 22.5
+offset_bottom = 25.0
+text = "Choose"
+script = ExtResource("5_hr4ih")
+
+[node name="WowPhotosInGame" type="Sprite2D" parent="diff" unique_id=1254117692]
+position = Vector2(131, 354.5)
+texture = ExtResource("9_cpamr")
+
+[node name="Label3" type="Label" parent="diff/WowPhotosInGame" unique_id=1437827906]
+offset_left = -33.0
+offset_top = -95.0
+offset_right = 52.5
+offset_bottom = -64.5
+text = "Empty"
+
+[node name="Button7" type="Button" parent="diff/WowPhotosInGame" unique_id=1641155302]
+offset_left = -57.0
+offset_top = 15.5
+offset_right = 8.0
+offset_bottom = 46.5
+text = "Choose"
+script = ExtResource("5_hr4ih")
+
+[node name="What" type="Sprite2D" parent="diff" unique_id=865606908]
+position = Vector2(249, 381.5)
+texture = ExtResource("10_mn2x1")
+
+[node name="CheckButton" type="CheckButton" parent="diff/What" unique_id=804427005]
+offset_left = -65.0
+offset_top = -24.5
+offset_right = 53.0
+offset_bottom = 6.5
+text = "Enabled?"
+
+[node name="Label" type="Label" parent="diff" unique_id=1716630139]
+offset_left = 98.0
+offset_top = 85.0
+offset_right = 1243.0
+offset_bottom = 154.0
+text = "How unbalanced do you want your game to be?"
+label_settings = SubResource("LabelSettings_xmgyx")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=613173461]
+anchor_mode = 0
+
+[node name="level" type="Node2D" parent="." unique_id=2038673388]
+visible = false
+
+[node name="ScrollContainer" type="ScrollContainer" parent="level" unique_id=146140423]
+clip_contents = false
+offset_left = 468.0
+offset_top = 193.0
+offset_right = 468.0
+offset_bottom = 193.0
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="level/ScrollContainer" unique_id=840178555]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="level/ScrollContainer/VBoxContainer" unique_id=17294322]
+layout_mode = 2
+text = "0-1"
+script = ExtResource("13_xcgji")
+scenename = 1.0
+
+[node name="Button2" type="Button" parent="level/ScrollContainer/VBoxContainer" unique_id=1360872041]
+layout_mode = 2
+text = "MORE LEVELS UPCOMING..."
+
+[node name="Label" type="Label" parent="level" unique_id=684977203]
+offset_left = 450.00003
+offset_top = 74.0
+offset_right = 558.0
+offset_bottom = 97.0
+scale = Vector2(2.56, 2.3200002)
+text = "And the level?"
+
+[node name="settings" type="Node" parent="." unique_id=993284821]
+script = ExtResource("18_cpamr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=4088655]
+stream = ExtResource("15_y5i8j")
+autoplay = true

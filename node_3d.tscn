@@ -1,0 +1,221 @@
+[gd_scene format=3 uid="uid://dmjal71vod6dt"]
+
+[ext_resource type="Texture2D" uid="uid://dvo1yyie0357v" path="res://imgs/white.png" id="1_jka67"]
+[ext_resource type="PackedScene" uid="uid://b08m7nds1quwv" path="res://objs/plr.tscn" id="2_i5arm"]
+[ext_resource type="PackedScene" uid="uid://c0rft1iocgpxs" path="res://objs/dmgsquare.tscn" id="3_wc5p8"]
+[ext_resource type="PackedScene" uid="uid://bx6yicdx0udj5" path="res://objs/mirror_expie.tscn" id="4_jsk3o"]
+[ext_resource type="Script" uid="uid://dsr6istfeofmg" path="res://scripts/checkpoint.gd" id="5_4arys"]
+
+[sub_resource type="GDScript" id="GDScript_jka67"]
+script/source = "extends CharacterBody2D
+
+@export var plr: CharacterBody2D
+
+const SPEED = 706.0
+const JUMP_VELOCITY = -400.0
+var dead = false
+var finished = false
+@onready var hp = get_meta(\"hp\")
+@onready var nav = $NavigationAgent2D
+var cananim = true
+var candmg = false
+var lookstop = false
+
+func _physics_process(delta: float) -> void:
+	hp = get_meta(\"hp\")
+	if hp < 0.1 and !finished:
+		dead = true
+		if $AudioStreamPlayer.playing == false:
+			$AudioStreamPlayer.play()
+		if $AnimatedSprite2D:
+			$AnimatedSprite2D.play(\"death\")
+			await $AnimatedSprite2D.animation_finished
+		if $AnimatedSprite2D:
+			$AnimatedSprite2D.queue_free()
+			$RigidBody2D.process_mode = Node.PROCESS_MODE_ALWAYS
+			$RigidBody2D2.process_mode = Node.PROCESS_MODE_ALWAYS
+			$RigidBody2D.visible = true
+			$RigidBody2D2.visible = true
+			
+			finished = true
+	if !dead:
+		var dir = global_position.direction_to(nav.get_next_path_position())
+		# Add the gravity.
+		nav.target_position = plr.position
+		velocity.x = dir.x * SPEED
+		if hp < 16:
+			if cananim:
+				$AnimatedSprite2D.play(\"enraged\")
+		else:
+			if cananim:
+				$AnimatedSprite2D.play(\"walk\")
+		# Handle jump.
+		if velocity.x != 0:
+		# If moving left, flip horizontally to true
+		# If moving right, flip horizontally to false
+			$AnimatedSprite2D.flip_h = velocity.x < 0
+		if !lookstop:
+			$RayCast2D.look_at(plr.position)
+		move_and_slide()
+"
+
+[sub_resource type="GDScript" id="GDScript_i5arm"]
+script/source = "extends CharacterBody2D
+
+@export var plr: CharacterBody2D
+
+const SPEED = 706.0
+const JUMP_VELOCITY = -400.0
+var dead = false
+var finished = false
+@onready var hp = get_meta(\"hp\")
+@onready var nav = $NavigationAgent2D
+var cananim = true
+var candmg = false
+var lookstop = false
+
+func _physics_process(delta: float) -> void:
+	hp = get_meta(\"hp\")
+	if hp < 0.1 and !finished:
+		dead = true
+		if $AudioStreamPlayer.playing == false:
+			$AudioStreamPlayer.play()
+		if $AnimatedSprite2D:
+			$AnimatedSprite2D.play(\"death\")
+			await $AnimatedSprite2D.animation_finished
+		if $AnimatedSprite2D:
+			$AnimatedSprite2D.queue_free()
+			$RigidBody2D.process_mode = Node.PROCESS_MODE_ALWAYS
+			$RigidBody2D2.process_mode = Node.PROCESS_MODE_ALWAYS
+			$RigidBody2D.visible = true
+			$RigidBody2D2.visible = true
+			
+			finished = true
+	if !dead:
+		var dir = global_position.direction_to(nav.get_next_path_position())
+		# Add the gravity.
+		nav.target_position = plr.position
+		velocity.x = dir.x * SPEED
+		if hp < 16:
+			if cananim:
+				$AnimatedSprite2D.play(\"enraged\")
+		else:
+			if cananim:
+				$AnimatedSprite2D.play(\"walk\")
+		# Handle jump.
+		if velocity.x != 0:
+		# If moving left, flip horizontally to true
+		# If moving right, flip horizontally to false
+			$AnimatedSprite2D.flip_h = velocity.x < 0
+		if !lookstop:
+			$RayCast2D.look_at(plr.position)
+		move_and_slide()
+"
+
+[node name="Node2D" type="Node2D" unique_id=1450179272]
+
+[node name="Sprite2D54" type="Sprite2D" parent="." unique_id=110399417]
+modulate = Color(0.4630682, 0.4630682, 0.4630682, 1)
+position = Vector2(578.99994, 605)
+scale = Vector2(4.6289063, 0.4526101)
+texture = ExtResource("1_jka67")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D54" unique_id=351890280]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D54/StaticBody2D" unique_id=1942822592]
+visible = false
+polygon = PackedVector2Array(-128, -128.5, -128, 128.5, 128, 128.5, 128, -128.5)
+
+[node name="Sprite2D55" type="Sprite2D" parent="." unique_id=2135013955]
+modulate = Color(0.4630682, 0.4630682, 0.4630682, 1)
+position = Vector2(1535.0001, 605)
+scale = Vector2(4.6289063, 0.4526101)
+texture = ExtResource("1_jka67")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D55" unique_id=157755286]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D55/StaticBody2D" unique_id=628813857]
+visible = false
+polygon = PackedVector2Array(-128, -128.5, -128, 128.5, 128, 128.5, 128, -128.5)
+
+[node name="Sprite2D56" type="Sprite2D" parent="." unique_id=541803978]
+modulate = Color(0.4630682, 0.4630682, 0.4630682, 1)
+position = Vector2(2304, 608)
+scale = Vector2(4.6289063, 0.4526101)
+texture = ExtResource("1_jka67")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D56" unique_id=1541789138]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D56/StaticBody2D" unique_id=4364851]
+visible = false
+polygon = PackedVector2Array(-128, -128.5, -128, 128.5, 128, 128.5, 128, -128.5)
+
+[node name="Sprite2D57" type="Sprite2D" parent="." unique_id=1239116653]
+modulate = Color(0.4630682, 0.4630682, 0.4630682, 1)
+position = Vector2(586.9999, 292)
+scale = Vector2(0.6993784, 0.29288593)
+texture = ExtResource("1_jka67")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D57" unique_id=153924962]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D57/StaticBody2D" unique_id=9717939]
+visible = false
+polygon = PackedVector2Array(-128, -128.5, -128, 128.5, 128, 128.5, 128, -128.5)
+
+[node name="Sprite2D58" type="Sprite2D" parent="." unique_id=8345451]
+modulate = Color(0.4630682, 0.4630682, 0.4630682, 1)
+position = Vector2(587, 545)
+scale = Vector2(0.6993784, 1.9328859)
+texture = ExtResource("1_jka67")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D58" unique_id=2108929436]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D58/StaticBody2D" unique_id=719823681]
+visible = false
+polygon = PackedVector2Array(-128, -128.5, -128, 128.5, 128, 128.5, 128, -128.5)
+
+[node name="CharacterBody2D" parent="." unique_id=1530091643 instance=ExtResource("2_i5arm")]
+position = Vector2(72, 312)
+wpn1 = true
+wpn2 = true
+firstlvl = false
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1952698332]
+
+[node name="Area2D9" parent="." unique_id=842898598 instance=ExtResource("3_wc5p8")]
+position = Vector2(-1182, 690)
+scale = Vector2(43.68, 1)
+collision_layer = 3
+dmg = 99999999.0
+
+[node name="CharacterBody2D2" parent="." unique_id=1486937654 node_paths=PackedStringArray("plr") instance=ExtResource("4_jsk3o")]
+position = Vector2(1229, 469)
+script = SubResource("GDScript_jka67")
+plr = NodePath("../CharacterBody2D")
+metadata/hp = 36.37
+
+[node name="CharacterBody2D3" parent="." unique_id=1518668160 node_paths=PackedStringArray("plr") instance=ExtResource("4_jsk3o")]
+position = Vector2(1472, 469)
+script = SubResource("GDScript_i5arm")
+plr = NodePath("../CharacterBody2D")
+metadata/hp = 51.485
+
+[node name="CharacterBody2D4" parent="." unique_id=2099765233 node_paths=PackedStringArray("plr") instance=ExtResource("4_jsk3o")]
+position = Vector2(1472, 232)
+script = SubResource("GDScript_i5arm")
+plr = NodePath("../CharacterBody2D")
+metadata/hp = 51.485
+
+[node name="CharacterBody2D5" parent="." unique_id=603806073 node_paths=PackedStringArray("plr") instance=ExtResource("4_jsk3o")]
+position = Vector2(1229, 217)
+script = SubResource("GDScript_i5arm")
+plr = NodePath("../CharacterBody2D")
+metadata/hp = 51.485
+
+[node name="cc" type="Node" parent="." unique_id=1503918394]
+script = ExtResource("5_4arys")

@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://csoh7kjpjnoyk"]
+
+[ext_resource type="Texture2D" uid="uid://dvo1yyie0357v" path="res://imgs/white.png" id="1_0e48y"]
+[ext_resource type="PackedScene" uid="uid://b08m7nds1quwv" path="res://objs/plr.tscn" id="2_epypp"]
+[ext_resource type="PackedScene" uid="uid://c0rft1iocgpxs" path="res://objs/dmgsquare.tscn" id="4_0hol4"]
+[ext_resource type="PackedScene" uid="uid://bx6yicdx0udj5" path="res://objs/mirror_expie.tscn" id="4_q6r6c"]
+[ext_resource type="Script" uid="uid://dsr6istfeofmg" path="res://scripts/checkpoint.gd" id="5_q6r6c"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0hol4"]
+vertices = PackedVector2Array(2886.1016, 538.9922, 585.53906, 536.6094, 701.2031, 534.85156, 484.5703, 536.5078, -1.53125, 536.0078, 12.5078125, 225.82813, 240.88281, 244.8125, 461.46094, 263.15625, 467.39844, 40.382813, 2915.8828, 284.9297, 694.7969, 210.5625, 696, 278.79688, 497.53906, 266.15625, 460.35156, 245.95313, 501.27344, 237.14063)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6, 7), PackedInt32Array(8, 9, 0, 10), PackedInt32Array(0, 2, 11, 10), PackedInt32Array(7, 12, 3), PackedInt32Array(13, 7, 6), PackedInt32Array(13, 6, 8, 14), PackedInt32Array(10, 14, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-12, 546, 3, 215, 508, 257, 495, 528, 691, 525, 686, 279, 685, 222, 503, 247, 136, 326, 464, 30, 2927, 276, 2895, 549)])
+
+[node name="Node2D" type="Node2D" unique_id=1450179272]
+
+[node name="Sprite2D54" type="Sprite2D" parent="." unique_id=110399417]
+modulate = Color(0.4630682, 0.4630682, 0.4630682, 1)
+position = Vector2(578.99994, 605)
+scale = Vector2(4.6289063, 0.4526101)
+texture = ExtResource("1_0e48y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D54" unique_id=351890280]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D54/StaticBody2D" unique_id=1942822592]
+visible = false
+polygon = PackedVector2Array(-128, -128.5, -128, 128.5, 128, 128.5, 128, -128.5)
+
+[node name="Sprite2D55" type="Sprite2D" parent="." unique_id=2135013955]
+modulate = Color(0.4630682, 0.4630682, 0.4630682, 1)
+position = Vector2(1535.0001, 605)
+scale = Vector2(4.6289063, 0.4526101)
+texture = ExtResource("1_0e48y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D55" unique_id=157755286]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D55/StaticBody2D" unique_id=628813857]
+visible = false
+polygon = PackedVector2Array(-128, -128.5, -128, 128.5, 128, 128.5, 128, -128.5)
+
+[node name="Sprite2D56" type="Sprite2D" parent="." unique_id=541803978]
+modulate = Color(0.4630682, 0.4630682, 0.4630682, 1)
+position = Vector2(2304, 608)
+scale = Vector2(4.6289063, 0.4526101)
+texture = ExtResource("1_0e48y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D56" unique_id=1541789138]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D56/StaticBody2D" unique_id=4364851]
+visible = false
+polygon = PackedVector2Array(-128, -128.5, -128, 128.5, 128, 128.5, 128, -128.5)
+
+[node name="Sprite2D57" type="Sprite2D" parent="." unique_id=1239116653]
+modulate = Color(0.4630682, 0.4630682, 0.4630682, 1)
+position = Vector2(586.9999, 292)
+scale = Vector2(0.6993784, 0.29288593)
+texture = ExtResource("1_0e48y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D57" unique_id=153924962]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D57/StaticBody2D" unique_id=9717939]
+visible = false
+polygon = PackedVector2Array(-128, -128.5, -128, 128.5, 128, 128.5, 128, -128.5)
+
+[node name="Sprite2D58" type="Sprite2D" parent="." unique_id=8345451]
+modulate = Color(0.4630682, 0.4630682, 0.4630682, 1)
+position = Vector2(587, 545)
+scale = Vector2(0.6993784, 1.9328859)
+texture = ExtResource("1_0e48y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D58" unique_id=2108929436]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D58/StaticBody2D" unique_id=719823681]
+visible = false
+polygon = PackedVector2Array(-128, -128.5, -128, 128.5, 128, 128.5, 128, -128.5)
+
+[node name="CharacterBody2D" parent="." unique_id=1530091643 instance=ExtResource("2_epypp")]
+position = Vector2(72, 312)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1952698332]
+
+[node name="Area2D9" parent="." unique_id=842898598 instance=ExtResource("4_0hol4")]
+position = Vector2(-1182, 690)
+scale = Vector2(43.68, 1)
+collision_layer = 3
+dmg = 99999999.0
+
+[node name="CharacterBody2D2" parent="." unique_id=1486937654 node_paths=PackedStringArray("plr") instance=ExtResource("4_q6r6c")]
+position = Vector2(1229, 469)
+plr = NodePath("../CharacterBody2D")
+metadata/hp = 1.0
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1577526606]
+position = Vector2(-14, 0)
+navigation_polygon = SubResource("NavigationPolygon_0hol4")
+
+[node name="cc" type="Node" parent="." unique_id=1503918394]
+script = ExtResource("5_q6r6c")

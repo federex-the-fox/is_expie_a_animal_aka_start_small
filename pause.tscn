@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://d2ak3jullfsmb"]
+
+[ext_resource type="Theme" uid="uid://ceabhuib6rmbu" path="res://new_theme.tres" id="1_45vjg"]
+[ext_resource type="Script" uid="uid://cxvjv2d3toqnp" path="res://resume.gd" id="2_aq7p1"]
+[ext_resource type="Script" uid="uid://c18o1y87gsvxc" path="res://reload.gd" id="3_6eyaj"]
+[ext_resource type="Script" uid="uid://cy5qw5g2ry4di" path="res://checkpointrespawn.gd" id="4_8u653"]
+[ext_resource type="Script" uid="uid://b30scweurfavw" path="res://button_4.gd" id="5_bwtow"]
+[ext_resource type="Script" uid="uid://8yv2h070olne" path="res://button_5.gd" id="6_05lnj"]
+
+[node name="CanvasLayer2" type="CanvasLayer" unique_id=1091423511]
+process_mode = 3
+layer = 999
+
+[node name="Button" type="Button" parent="." unique_id=1045247986]
+offset_left = -2.0
+offset_top = 94.0
+offset_right = 198.0
+offset_bottom = 174.0
+theme = ExtResource("1_45vjg")
+text = "Resume"
+script = ExtResource("2_aq7p1")
+
+[node name="Button2" type="Button" parent="." unique_id=1903309446]
+offset_left = -2.0
+offset_top = 199.0
+offset_right = 198.0
+offset_bottom = 279.0
+theme = ExtResource("1_45vjg")
+text = "Restart level"
+script = ExtResource("3_6eyaj")
+
+[node name="Button3" type="Button" parent="." unique_id=1034022263]
+offset_left = -2.0
+offset_top = 303.0
+offset_right = 198.0
+offset_bottom = 383.0
+theme = ExtResource("1_45vjg")
+text = "Checkpoint  "
+script = ExtResource("4_8u653")
+
+[node name="Button4" type="Button" parent="." unique_id=1584614046]
+offset_left = -2.0
+offset_top = 406.0
+offset_right = 198.0
+offset_bottom = 486.0
+theme = ExtResource("1_45vjg")
+text = "Main menu"
+script = ExtResource("5_bwtow")
+
+[node name="Button5" type="Button" parent="." unique_id=1868732328]
+offset_left = -2.0
+offset_top = 518.0
+offset_right = 198.0
+offset_bottom = 598.0
+theme = ExtResource("1_45vjg")
+text = "Quit"
+script = ExtResource("6_05lnj")
